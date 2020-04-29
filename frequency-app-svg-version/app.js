@@ -30,18 +30,23 @@ d3.select("form").on("submit", function () {
 	phrase.text("Analysis of: " + val);
 
 	const lettersSelection = letters
-		.selectAll("div.letter")
+		.selectAll("rect.letter")
 		.data(data, (d) => d.character);
 
 	lettersSelection.classed("new", false).exit().remove();
+		
 
 	lettersSelection
 		.enter()
-		.append("div")
+		.append("rect")
 		.classed("letter", true)
 		.classed("new", true)
-		.text((d) => d.character)
-		.style("height", (d) => d.count * 15 + "px");
+		.style("height", (d) => d.count * 15 + "px")
+		.append("text")
+		.attr("x", "5px")
+		.attr("y", "5px")
+		.attr("text-anchor", "middle")
+		.text((d) => d.character);
 
 	const newChars = lettersSelection.enter().nodes().length;
 

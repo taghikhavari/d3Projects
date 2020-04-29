@@ -46,5 +46,6 @@ form > button:hover {
 .new {
 	font-size: 1.5em;
   color: #ffffff;
-  line-height: 0.5em;
+	line-height: 0.5em;
+	background-color: green;
 }
